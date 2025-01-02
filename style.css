@@ -150,6 +150,31 @@ button:hover {
     color: white;
 }
 
+#addCompetency {
+    margin-bottom: 2.5rem;  /* Increased spacing */
+}
+
+.button-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.5rem;
+}
+
+.word-limit-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.word-limit-container input {
+    width: 70px;
+    padding: 0.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    text-align: center;
+}
+
 #generatedComment {
     margin-top: 2rem;
     padding: 1.5rem;

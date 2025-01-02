@@ -97,6 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const grade = document.getElementById('grade').value;
         const subject = document.getElementById('subject').value;
         const additionalContext = document.getElementById('additionalContext').value;
+        const wordLimit = document.getElementById('wordLimit').value;
     
         const competencies = Array.from(competenciesContainer.querySelectorAll('.competency-item')).map(item => {
             const label = item.querySelector('label').textContent.slice(0, -1);
@@ -112,6 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ${competencies.map(comp => `${comp.competency}: ${comp.value}`).join(', ')}.
         Additional context: ${additionalContext}.
         Make the tone encouraging and informative. Do not refer directly to the numerical values of the performance scores - these are for the teacher's internal reference only.
+        Please limit the response to approximately ${wordLimit} words.
         `;
     
         try {
