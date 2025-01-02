@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
         Make the tone encouraging and informative.
         `;
         const apiUrl = 'https://api.openai.com/v1/chat/completions';
-        const apiKey = process.env.OPENAI_API_KEY;
+
 
 
         try {
