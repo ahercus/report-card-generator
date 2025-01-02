@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
         Here are the student's performance scores across various competencies (1 = Weak, 10 = Excels):
         ${competencies.map(comp => `${comp.competency}: ${comp.value}`).join(', ')}.
         Additional context: ${additionalContext}.
-        Make the tone encouraging and informative.
+        Make the tone encouraging and informative. Do not refer directly to the numerical values of the performance scores - these are for the teacher's internal reference only.
         `;
     
         try {
