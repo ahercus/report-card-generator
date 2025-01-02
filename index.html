@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Card Comment Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Report Card Comment Generator</h1>
+        <div class="form-group">
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" placeholder="Enter first name">
+        </div>
+        <div class="form-group">
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" placeholder="Enter last name">
+        </div>
+        <div class="form-group">
+            <label for="grade">Grade:</label>
+            <select id="grade">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                 <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">College</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="subject">Subject:</label>
+            <select id="subject">
+                <option value="Mathematics">Mathematics</option>
+                <option value="Science">Science</option>
+                <option value="English">English</option>
+                 <option value="History">History</option>
+                <option value="Art">Art</option>
+            </select>
+        </div>
+        
+        <h2>Performance Scores:</h2>
+        <div id="competencies">
+            <!-- Competencies will be added here -->
+        </div>
+        <button id="addCompetency">Add Competency</button>
+
+        <div class="form-group">
+            <label for="additionalContext">Additional Context (Optional):</label>
+            <textarea id="additionalContext" rows="4" placeholder="Add any additional information"></textarea>
+        </div>
+
+        <button id="generateComment">Generate Comment</button>
+        
+         <div id="loading" style="display:none;">Loading...</div>
+
+        <div id="generatedComment">
+            <!-- Generated comment will be displayed here -->
+        </div>
+    </div>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align to the start of the container */
+    min-height: 100vh;
+}
+
+.container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    width: 80%; /* Set a percentage width */
+    max-width: 800px; /* Set a maximum width */
+    box-sizing: border-box; /* Include padding in the width */
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #3498db;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+input[type="text"],
+select,
+textarea {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    box-sizing: border-box;
+}
+
+textarea {
+    resize: vertical;
+}
+
+button {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+     transition: background-color 0.3s;
+     width: fit-content;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+.competency-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.competency-item label {
+    margin-right: 10px;
+    flex: 1; /* Allows label to occupy available space */
+}
+
+.competency-item input[type="range"] {
+    flex: 3;
+    margin-right: 10px;
+}
+
+.competency-item button.remove-competency {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.competency-item button.remove-competency:hover {
+    background-color: #c0392b;
+}
+
+#generatedComment {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    white-space: pre-line; /* Preserve line breaks */
+}
+
+
+/* Add this to adjust input field sizes on smaller screens */
+@media (max-width: 600px) {
+    .container {
+        width: 95%; /* Increase width on smaller screens */
+        padding: 15px;
+    }
+
+    .form-group, .competency-item {
+         flex-direction: column;
+         align-items: flex-start; /* Align items to the start on smaller screens */
+         
+    }
+
+    .competency-item label {
+        margin-bottom: 5px; /* Add margin below the label */
+        margin-right: 0;
+    }
+
+    .competency-item input[type="range"] {
+         width: 100%; /* Full width on smaller screens */
+          margin-bottom: 10px;
+          margin-right: 0;
+    }
+}
+
+
+#loading {
+        text-align: center;
+        margin-top: 20px;
+        font-style: italic;
+    }
