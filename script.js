@@ -117,13 +117,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const apiUrl = 'https://api.openai.com/v1/chat/completions';
 
 
-
         try {
             const response = await fetch(apiUrl, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                     'Authorization': `Bearer ${apiKey}`,
+                     'Authorization': `Bearer ${window.apiKey}`,
                 },
                  body: JSON.stringify({
                   model: "gpt-4o",
