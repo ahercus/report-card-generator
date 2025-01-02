@@ -90,15 +90,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     generateCommentButton.addEventListener('click', async (e) => {
         e.preventDefault();
-         loadingDiv.style.display = 'block';
-
+        loadingDiv.style.display = 'block';
+    
         const firstName = document.getElementById('firstName').value;
         const lastName = document.getElementById('lastName').value;
         const grade = document.getElementById('grade').value;
         const subject = document.getElementById('subject').value;
         const additionalContext = document.getElementById('additionalContext').value;
-
-         const competencies = Array.from(competenciesContainer.querySelectorAll('.competency-item')).map(item => {
+    
+        const competencies = Array.from(competenciesContainer.querySelectorAll('.competency-item')).map(item => {
             const label = item.querySelector('label').textContent.slice(0, -1);
             const slider = item.querySelector('input[type="range"]');
             return {
@@ -106,45 +106,38 @@ document.addEventListener('DOMContentLoaded', () => {
                 value: parseInt(slider.value)
             };
         });
-
-
+    
         const prompt = `Please generate a report card comment for ${firstName} ${lastName}, a student in grade ${grade}, for the subject of ${subject}.
         Here are the student's performance scores across various competencies (1 = Weak, 10 = Excels):
         ${competencies.map(comp => `${comp.competency}: ${comp.value}`).join(', ')}.
         Additional context: ${additionalContext}.
         Make the tone encouraging and informative.
         `;
-        const apiUrl = 'https://api.openai.com/v1/chat/completions';
-
-
+    
         try {
-            const response = await fetch(apiUrl, {
+            const response = await fetch('/api/generate', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                     'Authorization': `Bearer ${window.apiKey}`,
                 },
-                 body: JSON.stringify({
-                  model: "gpt-4o",
-                  messages: [{ "role": "user", "content": prompt }],
-                })
+                body: JSON.stringify({ prompt })
             });
-
-            if (!response.ok) {
-               loadingDiv.style.display = 'none';
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-
+    
             const data = await response.json();
-             loadingDiv.style.display = 'none';
+            
+            if (!response.ok) {
+                loadingDiv.style.display = 'none';
+                throw new Error(data.error || `HTTP error! Status: ${response.status}`);
+            }
+    
+            loadingDiv.style.display = 'none';
             const comment = data.choices[0].message.content;
-           document.getElementById('generatedComment').textContent = comment.trim();
-
-
+            document.getElementById('generatedComment').textContent = comment.trim();
+    
         } catch (error) {
-             loadingDiv.style.display = 'none';
-           document.getElementById('generatedComment').textContent = `Error: ${error.message}`;
-           console.error('Error calling OpenAI API:', error);
+            loadingDiv.style.display = 'none';
+            document.getElementById('generatedComment').textContent = `Error: ${error.message}`;
+            console.error('Error generating comment:', error);
         }
     });
 });
